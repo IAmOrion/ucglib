@@ -315,7 +315,7 @@ ucg_int_t ucg_dev_ic_ssd1351_18(ucg_t *ucg, ucg_int_t msg, void *data)
     case UCG_MSG_DEV_POWER_UP:
       /* setup com interface and provide information on the clock speed */
       /* of the serial and parallel interface. Values are nanoseconds. */
-      return ucg_com_PowerUp(ucg, 50, 300);
+      return ucg_com_PowerUp(ucg, 75, 300);
     case UCG_MSG_DEV_POWER_DOWN:
       ucg_com_SendCmdSeq(ucg, ucg_ssd1351_power_down_seq);
       return 1;
