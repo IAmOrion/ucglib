@@ -73,8 +73,8 @@ static const ucg_pgm_uint8_t ucg_tft_128x160_st7735_init_seq[] = {
 
   UCG_C11( 0x036, 0x000),		/* memory control */
   
-  UCG_C14(  0x02a, 0x000, 0x000, 0x000, 0x07f),              /* Horizontal GRAM Address Set */
-  UCG_C14(  0x02b, 0x000, 0x000, 0x000, 0x09f),              /* Vertical GRAM Address Set */
+  UCG_C14(  0x02a, 0x000, 0x000, 0x000, 0x083),              /* Horizontal GRAM Address Set */
+  UCG_C14(  0x02b, 0x000, 0x000, 0x000, 0x0A1),              /* Vertical GRAM Address Set */
   UCG_C10(  0x02c),               /* Write Data to GRAM */
 
   

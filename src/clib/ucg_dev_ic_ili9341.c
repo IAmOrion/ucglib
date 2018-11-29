@@ -59,7 +59,7 @@ const ucg_pgm_uint8_t ucg_ili9341_set_pos_dir0_seq[] =
   /* 0x048 horizontal deccrement (dir = 2) */
   /* 0x088 vertical deccrement (dir = 3) */
   UCG_C11( 0x036, 0x008),
-  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x0ef),					/* set x position */
+  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x0ef),		/* set x position */
   UCG_C10(0x02b),	UCG_VARY(8,0x01, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x001, 0x03f),		/* set y position */
 
   UCG_C10(0x02c),							/* write to RAM */

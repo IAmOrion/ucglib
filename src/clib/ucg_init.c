@@ -48,8 +48,8 @@ void ucg_init_struct(ucg_t *ucg)
   ucg->is_power_up = 0;
   ucg->rotate_chain_device_cb = 0;
   ucg->arg.scale = 1;
-  //ucg->display_offset.x = 0;
-  //ucg->display_offset.y = 0;
+  ucg->display_offset.x = 0;
+  ucg->display_offset.y = 0;
   ucg->font = 0;
   //ucg->font_mode = UCG_FONT_MODE_NONE;   Old font procedures
   ucg->font_decode.is_transparent = 1;  // new font procedures

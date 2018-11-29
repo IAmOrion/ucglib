@@ -125,7 +125,7 @@ void ucg_SetRotate90(ucg_t *ucg)
   ucg->rotate_chain_device_cb = ucg->device_cb;
   ucg->device_cb = ucg_dev_rotate90;
   ucg_GetDimension(ucg);
-  ucg_SetMaxClipRange(ucg);
+  // ucg_SetMaxClipRange(ucg); // executed in ucg_GetDimension(ucg);
 }
 
 /*================================================*/
