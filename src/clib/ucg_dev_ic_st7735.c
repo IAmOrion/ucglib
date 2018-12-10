@@ -38,19 +38,19 @@
 #include "ucg.h"
 
 
-const ucg_pgm_uint8_t ucg_st7735_set_pos_seq[] = 
+const ucg_pgm_uint8_t ucg_st7735_set_pos_seq[] = // init rotate
 {
   UCG_CS(0),					/* enable chip */
   UCG_C11( 0x036, 0x000),
-  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x07f+4),		/* set x position */
-  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+2),		/* set y position */
+  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x07f+2),		/* set x position */
+  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+1),		/* set y position */
   UCG_C10(0x02c),							/* write to RAM */
   UCG_DATA(),								/* change to data mode */
   UCG_END()
 };
 
 
-const ucg_pgm_uint8_t ucg_st7735_set_pos_dir0_seq[] = 
+const ucg_pgm_uint8_t ucg_st7735_set_pos_dir0_seq[] = // unrotate
 {
   UCG_CS(0),					/* enable chip */
   
@@ -59,15 +59,15 @@ const ucg_pgm_uint8_t ucg_st7735_set_pos_dir0_seq[] =
   /* 0x040 horizontal deccrement (dir = 2) */
   /* 0x080 vertical deccrement (dir = 3) */
   UCG_C11( 0x036, 0x000),
-  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x07f+4),		/* set x position */
-  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+2),		/* set y position */
+  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x07f+2),		/* set x position */
+  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+1),		/* set y position */
 
   UCG_C10(0x02c),							/* write to RAM */
   UCG_DATA(),								/* change to data mode */
   UCG_END()
 };
 
-const ucg_pgm_uint8_t ucg_st7735_set_pos_dir1_seq[] = 
+const ucg_pgm_uint8_t ucg_st7735_set_pos_dir1_seq[] = // rotate90
 {
   UCG_CS(0),					/* enable chip */
   /* 0x000 horizontal increment (dir = 0) */
@@ -76,14 +76,14 @@ const ucg_pgm_uint8_t ucg_st7735_set_pos_dir1_seq[] =
   /* 0x080 vertical deccrement (dir = 3) */
   UCG_C11( 0x036, 0x000),
   UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0),	/* set x position */
-  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+2),						/* set y position */
+  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+1),						/* set y position */
 
   UCG_C10(0x02c),							/* write to RAM */
   UCG_DATA(),								/* change to data mode */
   UCG_END()
 };
 
-const ucg_pgm_uint8_t ucg_st7735_set_pos_dir2_seq[] = 
+const ucg_pgm_uint8_t ucg_st7735_set_pos_dir2_seq[] = //rotate180
 {
   UCG_CS(0),					/* enable chip */
   
@@ -93,16 +93,16 @@ const ucg_pgm_uint8_t ucg_st7735_set_pos_dir2_seq[] =
   /* 0x080 vertical deccrement (dir = 3) */
   
   UCG_C11( 0x036, 0x040),
-  UCG_C11( 0x036, 0x040),			/* it seems that this command needs to be sent twice */
-  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x083),					/* set x position */
-  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x0A1),		/* set y position */
+  //UCG_C11( 0x036, 0x040),			/* it seems that this command needs to be sent twice */
+  UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_A2(0x000, 0x07f+2),					/* set x position */
+  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+1),		/* set y position */
 
   UCG_C10(0x02c),							/* write to RAM */
   UCG_DATA(),								/* change to data mode */
   UCG_END()
 };
 
-const ucg_pgm_uint8_t ucg_st7735_set_pos_dir3_seq[] = 
+const ucg_pgm_uint8_t ucg_st7735_set_pos_dir3_seq[] = //rotate270
 {
   UCG_CS(0),					/* enable chip */
   
@@ -111,9 +111,9 @@ const ucg_pgm_uint8_t ucg_st7735_set_pos_dir3_seq[] =
   /* 0x0c0 horizontal deccrement (dir = 2) */
   /* 0x0c0 vertical deccrement (dir = 3) */
   UCG_C11( 0x036, 0x080),
-  UCG_C11( 0x036, 0x080),		/* it seems that this command needs to be sent twice */
+  //UCG_C11( 0x036, 0x080),		/* it seems that this command needs to be sent twice */
   UCG_C10(0x02a),	UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0), UCG_VARX(0,0x00, 0), UCG_VARX(0,0x0ff, 0),					/* set x position */
-  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x0A1),		/* set y position */
+  UCG_C10(0x02b),	UCG_VARY(0,0x00, 0), UCG_VARY(0,0x0ff, 0), UCG_A2(0x000, 0x09f+1),		/* set y position */
 
   UCG_C10(0x02c),							/* write to RAM */
   UCG_DATA(),								/* change to data mode */
@@ -129,22 +129,22 @@ ucg_int_t ucg_handle_st7735_l90fx(ucg_t *ucg)
   {
     switch(ucg->arg.dir)
     {
-      case 0: 
+      case 0: 			// undo rotate?
 		ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir0_seq);	
 		break;
-      case 1: 
+      case 1: 			// rotate90??
 		ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir1_seq);	
 		break;
-      case 2: 
+      case 2:			// rotate180 (drawFrame, )
 		tmp = ucg->arg.pixel.pos.x ;
-		ucg->arg.pixel.pos.x = (ucg->dimension.w-1)-tmp;
+		ucg->arg.pixel.pos.x = (127)-tmp;
 		ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir2_seq);	
 		ucg->arg.pixel.pos.x = tmp;
 		break;
-      case 3: 
+      case 3: 			// rotate270
       default: 
 		tmp = ucg->arg.pixel.pos.y;
-		ucg->arg.pixel.pos.y = (ucg->dimension.h-1)-tmp;
+		ucg->arg.pixel.pos.y = (159)-tmp;
 		ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir3_seq);	
 		ucg->arg.pixel.pos.y = tmp;
 		break;
@@ -278,17 +278,17 @@ ucg_int_t ucg_handle_st7735_l90se(ucg_t *ucg)
 			break;
 		case 2: 
 			tmp = ucg->arg.pixel.pos.x;
-			ucg->arg.pixel.pos.x = (ucg->dimension.w-1)-tmp;
+			ucg->arg.pixel.pos.x = (127)-tmp;
 			ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir2_seq);	
 			ucg->arg.pixel.pos.x = tmp;
 			break;
 		case 3: 
 		default: 
 			tmp = ucg->arg.pixel.pos.y;
-		ucg->arg.pixel.pos.y = (ucg->dimension.h-1)-tmp;
-		ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir3_seq);	
-		ucg->arg.pixel.pos.y = tmp;
-		break;
+			ucg->arg.pixel.pos.y = (159)-tmp;
+			ucg_com_SendCmdSeq(ucg, ucg_st7735_set_pos_dir3_seq);	
+			ucg->arg.pixel.pos.y = tmp;
+			break;
 	}
     
     for( i = 0; i < ucg->arg.len; i++ )
